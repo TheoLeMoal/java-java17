@@ -12,23 +12,27 @@ import java17.data.Person;
  */
 public class Function_06_Test {
 
-
     // tag::formatAge[]
-    // TODO compléter la méthode
-    // TODO la méthode retourne une chaîne de caractères de la forme [age=<AGE>] (exemple : [age=12])
+    // Compléter la méthode
+    // La méthode retourne une chaîne de caractères de la forme [age=<AGE>] (exemple : [age=12])
     String formatAge(Supplier<Person> supplier) {
-        // TODO
-        return null;
+        // Récupérer la personne à partir du Supplier
+        Person person = supplier.get();
+
+        // Retourner la chaîne de caractères formatée
+        return "[age=" + person.getAge() + "]";
     }
     // end::formatAge[]
 
-
     @Test
     public void test_supplier_formatAge() throws Exception {
-        // TODO compléter le test unitaire pour qu'il soit passant
-        String result = formatAge(null);
+        // Créer un Supplier qui fournit une personne avec un âge de 35
+        Supplier<Person> personSupplier = () -> new Person("John", "Doe", 35, "password");
 
+        // Invoquer la méthode formatAge avec le Supplier
+        String result = formatAge(personSupplier);
+
+        // Vérifier que le résultat est conforme à la chaîne attendue
         assert result.equals("[age=35]");
     }
-
 }

@@ -15,7 +15,12 @@ public class Function_02_Test {
     //  tag::buildAccount[]
     // TODO Compléter la fonction buildAccount
     // TODO la fonction possède 2 paramètres en entrée : une personne et un solde
-    BiFunction<Person, Integer, Account> buildAccount = null;
+    BiFunction<Person, Integer, Account> buildAccount = (person, balance) -> {
+        Account account = new Account();
+        account.setOwner(person);
+        account.setBalance(balance);
+        return account;
+    };
     //  end::buildAccount[]
 
     @Test
